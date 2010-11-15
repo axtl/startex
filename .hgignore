@@ -9,3 +9,13 @@ pylint_
 _HG_
 \!HG\!
 
+\.aux
+\.bbl
+\.blg
+\.d
+\.dvi
+\.ent
+\.fls
+\.log
+\.pdf
+
