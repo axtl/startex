@@ -1,7 +1,35 @@
 % style.sty - based off usenix.sty template from
 % http://www.usenix.org/events/osdi08/cfp/requirements.html
 \usepackage{mathpazo}  % palatino, including math (where possible)
-\usepackage{helvet}    % helvetica
+\usepackage{helvet}    % Helvetica
+\allsectionsfont{\fontfamily{helvet}\selectfont} % all titles in Helvetica
+
+\usepackage[british]{babel} % British hyphenation patterns
+
+\usepackage{color} % Regquired by {listings}
+\usepackage{listings} % Code listings
+
+\lstset{ %
+language=Python,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % font size for line-numbers
+stepnumber=4,                   % the step between line-numbers
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings
+frame=single,	                % adds a frame around the code
+tabsize=4,	                    % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % break only on whitespace
+title=\lstname,                 % use name from filename in \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment in the code
+morekeywords={*,...}            % if you want to add more keywords to the set
+}
 
 \if@twocolumn\else\input twocolumn.sty\fi
 

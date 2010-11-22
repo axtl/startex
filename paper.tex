@@ -44,14 +44,7 @@ Some embedded literal typeset code might
 look like the following :
 
 {\tt \small
-\begin{verbatim}
-from random import choice
-from string import hexdigits
-
-def randbits(bitlen):
-    return ''.join(choice(hexdigits)\
-        for i in xrange(bitlen))
-\end{verbatim}
+\lstinputlisting[language=Python]{code.py}
 }
 
 Now we're going to cite somebody.  Watch for the cite tag.
