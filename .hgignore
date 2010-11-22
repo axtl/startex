@@ -15,7 +15,9 @@ _HG_
 \.d
 \.dvi
 \.ent
+\.fdb_latexmk
 \.fls
 \.log
 \.pdf
+\.synctex\.
 
