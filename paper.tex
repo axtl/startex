@@ -9,14 +9,14 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\fontfamily{phv}\selectfont{\huge{\bfseries{Awesome Title}}}}
+\title{\fontfamily{phv}\selectfont{\huge{\textbf{Awesome Title}}}}
 
 %for single author (just remove % characters)
 \author{
-{\rm Alexandru Totolici}\\
+{\rm \textbf{Alexandru Totolici}}\\
 University of British Columbia
 % \and
-% {\rm Name}\\
+% {\rm \textbf{Name}\\
 %Name Institution
 } % end author
 
@@ -28,7 +28,7 @@ University of British Columbia
 
 \begin{abstract}
 Your Abstract Text Goes Here.  Just a few facts.
-Whet our appetites.
+\textit{Whet our appetites.}
 \end{abstract}
 
 \section{Introduction}
@@ -43,7 +43,7 @@ More fascinating text. Features\endnote{Remember to use endnotes, not footnotes!
 Some embedded literal typeset code might
 look like the following :
 
-{\tt \small
+\texttt{\small
 \lstinputlisting[language=Python]{code.py}
 }
 
@@ -80,17 +80,17 @@ It can get tricky typesetting Tcl and C code in LaTeX because they share
 a lot of mystical feelings about certain magic characters.  You
 will have to do a lot of escaping to typeset curly braces and percent
 signs, for example, like this:
-``The {\tt \%module} directive
+``The \texttt{\%module} directive
 sets the name of the initialization function.  This is optional, but is
 recommended if building a Tcl 7.5 module.
-Everything inside the {\tt \%\{, \%\}}
+Everything inside the \texttt{\%\{, \%\}}
 block is copied directly into the output. allowing the inclusion of
 header files and additional C code." \\
 
 Sometimes you want to really call attention to a piece of text.  You
 can center it in the column like this:
 \begin{center}
-{\tt \_1008e614\_Vector\_p}
+\texttt{\_1008e614\_Vector\_p}
 \end{center}
 and people will really notice it.\\
 
@@ -100,31 +100,32 @@ a continuation of the preceding text, not a new para in its own right.
 
 
 Now this is an ingenious way to get a forced space.
-{\tt Real~$*$} and {\tt double~$*$} are equivalent.
+\texttt{Real~$*$} and \texttt{double~$*$} are equivalent.
 
 Now here is another way to call attention to a line of code, but instead
 of centring it, we noindent and bold it.\\
 
 \noindent
-{\bf \tt size\_t : fread ptr size nobj stream } \\
+\textbf{\texttt{size\_t : fread ptr size nobj stream }}\\
 
 And here we have made an indented para like a definition tag (dt)
 in HTML.  You don't need a surrounding list macro pair.
 \begin{itemize}
-\item[]  {\tt fread} reads from {\tt stream} into the array {\tt ptr} at
-most {\tt nobj} objects of size {\tt size}.   {\tt fread} returns
+\item[]  \texttt{fread} reads from \texttt{stream} into the array \texttt{ptr} 
+at most \texttt{nobj} objects of size \texttt{size}.   \texttt{fread} returns
 the number of objects read.
 \end{itemize}
 This concludes the definitions tag.
 
 \subsection{How to Build Your Paper}
 
-You have to run {\tt latex} once to prepare your references for
-munging.  Then run {\tt bibtex} to build your bibliography metadata.
-Then run {\tt latex} twice to ensure all references have been resolved.
-If your source file is called {\tt usenixTemplate.tex} and your {\tt
-  bibtex} file is called {\tt usenixTemplate.bib}, here's what you do:
-{\tt \small
+You have to run \texttt{latex} once to prepare your references for
+munging.  Then run \texttt{bibtex} to build your bibliography metadata.
+Then run \texttt{latex} twice to ensure all references have been resolved.
+If your source file is called \texttt{usenixTemplate.tex} and your 
+\texttt{bibtex} file is called \texttt{usenixTemplate.bib}, here's what you 
+do:
+\texttt{\small
 \begin{verbatim}
 latex usenixTemplate
 bibtex usenixTemplate
@@ -132,7 +133,6 @@ latex usenixTemplate
 latex usenixTemplate
 \end{verbatim}
 }
-
 
 \subsection{Last SubSection}
 
@@ -150,14 +150,14 @@ It's great when this section says that MyWonderfulApp is free software,
 available via anonymous FTP from
 
 \begin{center}
-{\tt ftp.site.dom/pub/myname/Wonderful}\\
+\texttt{ftp.site.dom/pub/myname/Wonderful}\\
 \end{center}
 
 Also, it's even greater when you can write that information is also
 available on the Wonderful homepage at
 
 \begin{center}
-{\tt http://www.site.dom/\~{}myname/SWIG}
+\texttt{http://www.site.dom/\~{}myname/SWIG}
 \end{center}
 
 Now we get serious and fill in those references.  Remember you will
@@ -166,11 +166,12 @@ cite tags you met earlier.  This is where they get resolved.
 We've preserved some real ones in addition to the template-speak.
 After the bibliography you are DONE.
 
-{\footnotesize \bibliographystyle{acm}
-\bibliography{bibliography}}
+{\footnotesize 
+    \bibliographystyle{acm}
+    \bibliography{bibliography}}
 
-
-\theendnotes
+% comment out if you don't have endnotes anywhere
+% \theendnotes
 
 \end{document}
 
