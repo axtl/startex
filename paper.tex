@@ -1,7 +1,9 @@
 % paper.tex template - based off template.la from
 % http://www.usenix.org/events/osdi08/cfp/requirements.html
 
-\documentclass[letterpaper,twocolumn,10pt]{article}
+% [final] directive brings in any pictures you have
+% remove or replace with [draft] to suppress that before you're complete if you prefer
+\documentclass[letterpaper,twocolumn,10pt,final]{article}
 \usepackage{style}
 \begin{document}
 
@@ -9,14 +11,19 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\fontfamily{phv}\selectfont{\huge{\textbf{Awesome Title}}}}
+\title{\fontfamily{phv}\selectfont
+    {\huge{\textbf{startex}}}\\
+    {\large{\textbf{\\A LaTeX Starter}}}}
+
 
 %for single author (just remove % characters)
 \author{
 {\rm \textbf{Alexandru Totolici}}\\
-University of British Columbia
+{\rm totolici@cs.ubc.ca}\\
+University of British Columbia\\
 % \and
-% {\rm \textbf{Name}\\
+% {\rm \textbf{That Other Guy}\\
+% {\rm email@example.edu}\\
 %Name Institution
 } % end author
 
@@ -27,151 +34,71 @@ University of British Columbia
 \thispagestyle{empty}
 
 \begin{abstract}
-Your Abstract Text Goes Here.  Just a few facts.
-\textit{Whet our appetites.}
+This is \textbf{startex}~\cite{startex}, a LaTeX starter for conference-style papers, based off the USENIX template. It includes some of the default styles one might use, and some hints on how to use them (not that I'm an expert).
+
+Please refer to the source in \texttt{paper.tex} (if you aren't already) for comments on what the different parts do. Don't hesitate to send updates if you know of better ways to do some of the things herein. \textit{Thanks!}
 \end{abstract}
 
-\section{Introduction}
+\section{\label{sec:intro}Introduction}
 
-A paragraph of text goes here.  Lots of text.  Plenty of interesting
-text. \\
+% use \label{sec:secname} for consistency and to make it easy to \ref{sec:secname} where you need to. The {hyperref} package makes nice links in PDFs.
 
-More fascinating text. Features\endnote{Remember to use endnotes, not footnotes!} galore, plethora of promises.\\
+This paper is organised as follows: Section~\ref{sec:intro} is what you're reading. Section~\ref{sec:figs} shows a figure. Section~\ref{sec:code} shows some code. That's about it.
+\\
+\\
+You can also have endnotes\endnote{But if you don't, you \textbf{MUST} comment out the \texttt{\\theendnotes} line at the end of the document.}. 
+\\
+\\
+And of course, you must cite lots to have a good paper. Often, peer reviewers will give a baseline review, then multiply it by the number of references you have. You generally want to find a way to cite \textit{Knuth}, \textit{Ritchie} or \textit{Diffie}~\cite{Diffie1976} for extra bonus.
+\\
+\\
+The tilde character (\~{}) in the source means a non-breaking space. This way, your reference will always be attached to the word that preceded it, instead of going to the next line. Useful for references as well.
 
-\section{This is Another Section}}}}
+\section{\label{sec:figs}Figures}
 
-Some embedded literal typeset code might
-look like the following :
+You need to look at the code for this. Notice the picture doesn't go exactly where you want it---but you can do your hardest to force it!
 
-\texttt{\small
-\lstinputlisting[language=Python]{code.py}
-}
-
-Now we're going to cite somebody.  Watch for the cite tag.
-Here it comes~\cite{Diffie:1976:MCT:1499799.1499815}.  The tilde character (\~{})
-in the source means a non-breaking space.  This way, your reference will
-always be attached to the word that preceded it, instead of going to the
-next line.
-
-\section{This Section has SubSections}
-\subsection{First SubSection}
-\subsection{Another SubSection}
-
-Here's a typical figure reference.  The figure is centered at the
-top of the column.  It's scaled.  It's explicitly placed.  You'll
-have to tweak the numbers to get what you want.\\
-
-% you can also use the wonderful epsfig package...
-\begin{figure}[t]
-\begin{center}
-\begin{picture}(300,150)(0,200)
-\put(-15,-30){\special{psfile = figs/fig1.ps hscale = 50 vscale = 50}}
-\end{picture}\\
-\end{center}
-\caption{Wonderful Flowchart}
+\begin{figure}[h!]
+    \centering
+        % actual name of file minus extension inside {}
+        \includegraphics[width=0.475\textwidth]{fig}
+    % caption - what's the fig about? move above \include if you prefer
+    \caption{A figure}
+    % labels make it nice to refer back to figures
+    \label{fig:figure1}
 \end{figure}
 
-This text came after the figure, so we'll casually refer to Figure 1
-as we go on our merry way.
+A trick I sometimes use is to define figs in a separate file (say, \texttt{figures.sty}) and include it in the \texttt{usepackage} directive at the top of the document. Helpful when you have lots of pictures and want to make moving them around easier.
 
-\subsection{New Subsection}
+\section{\label{sec:code}Some Code}
 
-It can get tricky typesetting Tcl and C code in LaTeX because they share
-a lot of mystical feelings about certain magic characters.  You
-will have to do a lot of escaping to typeset curly braces and percent
-signs, for example, like this:
-``The \texttt{\%module} directive
-sets the name of the initialization function.  This is optional, but is
-recommended if building a Tcl 7.5 module.
-Everything inside the \texttt{\%\{, \%\}}
-block is copied directly into the output. allowing the inclusion of
-header files and additional C code." \\
+\subsection{\label{sec:code:py}Code Listings}
 
-Sometimes you want to really call attention to a piece of text.  You
-can center it in the column like this:
-\begin{center}
-\texttt{\_1008e614\_Vector\_p}
-\end{center}
-and people will really notice it.\\
+Some embedded literal typeset code might look like the following :
 
-\noindent
-The noindent at the start of this paragraph makes it clear that it's
-a continuation of the preceding text, not a new para in its own right.
-
-
-Now this is an ingenious way to get a forced space.
-\texttt{Real~$*$} and \texttt{double~$*$} are equivalent.
-
-Now here is another way to call attention to a line of code, but instead
-of centring it, we noindent and bold it.\\
-
-\noindent
-\textbf{\texttt{size\_t : fread ptr size nobj stream }}\\
-
-And here we have made an indented para like a definition tag (dt)
-in HTML.  You don't need a surrounding list macro pair.
-\begin{itemize}
-\item[]  \texttt{fread} reads from \texttt{stream} into the array \texttt{ptr} 
-at most \texttt{nobj} objects of size \texttt{size}.   \texttt{fread} returns
-the number of objects read.
-\end{itemize}
-This concludes the definitions tag.
-
-\subsection{How to Build Your Paper}
-
-You have to run \texttt{latex} once to prepare your references for
-munging.  Then run \texttt{bibtex} to build your bibliography metadata.
-Then run \texttt{latex} twice to ensure all references have been resolved.
-If your source file is called \texttt{usenixTemplate.tex} and your 
-\texttt{bibtex} file is called \texttt{usenixTemplate.bib}, here's what you 
-do:
-\texttt{\small
-\begin{verbatim}
-latex usenixTemplate
-bibtex usenixTemplate
-latex usenixTemplate
-latex usenixTemplate
-\end{verbatim}
+\texttt{
+    \small\lstinputlisting[language=Python]{code.py}
 }
 
-\subsection{Last SubSection}
+The above uses the \texttt{\{listings\}} and \texttt{\{color\}} packages. Don't worry, it's all taken care for you in \texttt{style.sty}.
 
-Well, it's getting boring isn't it.  This is the last subsection
-before we wrap it up.
+\subsection{\label{sec:code:tex}LaTeX Magic}
 
-\section{Acknowledgments}
+Did you look at the code in \texttt{paper.tex} yet? Hopefully, you're actually reading that.
 
-A polite author always includes acknowledgments.  Thank everyone,
-especially those who funded the work.
+There are complicated ways of compiling LaTeX stuff, but I recommend using the awesome \texttt{Makefile}~\cite{latex-makefile} (included in the repo). It'll spit out a PDF on the other end and take care of everything and the kitchen sink for you.
 
-\section{Availability}
+\subsubsection*{Suppressing Section Numbers}
 
-It's great when this section says that MyWonderfulApp is free software,
-available via anonymous FTP from
-
-\begin{center}
-\texttt{ftp.site.dom/pub/myname/Wonderful}\\
-\end{center}
-
-Also, it's even greater when you can write that information is also
-available on the Wonderful homepage at
-
-\begin{center}
-\texttt{http://www.site.dom/\~{}myname/SWIG}
-\end{center}
-
-Now we get serious and fill in those references.  Remember you will
-have to run latex twice on the document in order to resolve those
-cite tags you met earlier.  This is where they get resolved.
-We've preserved some real ones in addition to the template-speak.
-After the bibliography you are DONE.
+% \ldots for ellipsis, don't use three dots - poor spacing.
+You do so using \texttt{(sub\ldots)section*}
 
 {\footnotesize 
     \bibliographystyle{acm}
     \bibliography{bibliography}}
 
 % comment out if you don't have endnotes anywhere
-% \theendnotes
+\theendnotes
 
 \end{document}
 
