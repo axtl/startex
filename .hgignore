@@ -18,6 +18,8 @@ _HG_
 \.fdb_latexmk
 \.fls
 \.log
+\.out
+\.out.make
 \.pdf
 \.synctex\.
 
