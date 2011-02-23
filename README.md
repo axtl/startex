@@ -22,4 +22,4 @@ Limited changes should be made to `style.sty` as it may otherwise interfere with
 [latex-makefile]: https://latex-makefile.googlecode.com/
 [USENIX]: http://www.usenix.org/
 [usetla]: http://www.usenix.org/events/osdi08/cfp/requirements.html
-[pdf]: blob/master/paper.pdf
+[pdf]: startex/raw/master/paper.pdf
