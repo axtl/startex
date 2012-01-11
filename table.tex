@@ -1,0 +1,27 @@
+\begin{table*}
+    \centering
+    % columns; can use multipliers as well
+    \begin{tabular}{l*{8}c}
+        \toprule
+        % multicolumn allows cell merging for headings; specify which cells to create the multi-column for
+        \multicolumn{1}{c}{\textbf{Server}} & \multicolumn{6}{c}{\textbf{GET}} & \multicolumn{2}{c}{\textbf{POST}} \\
+        \cmidrule{2-9} % specify which columns to draw line for
+        & \multicolumn{2}{c}{100-all} & \multicolumn{2}{c}{100-single} & \multicolumn{2}{c}{1000-single} & \multicolumn{2}{c}{1000} \\
+        & S & L & S & L & S & L & S & L \\ 
+        \midrule
+        \emph{SRV\_A} & 4.83 & 4.96 & 838.08 & 413.71 & 720.86 & 673.97 & 654.51 & 763.50 \\
+        \emph{SRV\_B} & 2.85 & 2.96 & 99.45 & 113.24 & 142.75 & 137.62 & 142.88 & 123.82 \\
+        \bottomrule
+    \end{tabular}
+    \caption{A table (of requests/second)}
+    % your legend can be another table, too
+    \caption*{\textbf{GET} Legend}
+        \begin{tabular}{*{2}l}
+            \toprule
+            \emph{100-all} & retrieve \texttt{/posts/} 100 times \\
+            \emph{100-single} & retrieve \texttt{/posts/123/} 100 times \\
+            \emph{1000-single} & retrieve \texttt{/posts/234/} 1000 times \\
+            \bottomrule
+        \end{tabular}
+    \label{tab:eval}
+\end{table*}

@@ -22,7 +22,7 @@
 {\rm email@provider.tld}\\
 Organization\\
 % \and
-% {\rm \textbf{That Other Guy}\\
+% {\rm \textbf{That Other Person}\\
 % {\rm email@example.edu}\\
 %Name Institution
 } % end author
@@ -34,77 +34,46 @@ Organization\\
 \thispagestyle{empty}
 
 \begin{abstract}
-This is \textbf{startex}~\cite{startex}, a LaTeX starter for conference-style papers, based off the USENIX template. It includes some of the default styles one might use, and some hints on how to use them (not that I'm an expert).
+This is \textbf{startex}~\cite{startex}~\endnote{The tilde character (\~{}) in the source means a non-breaking space. This way, your reference will always be attached to the word that preceded it, instead of going to the next line. Useful for citations and endnotes as well.}, a LaTeX starter for conference-style papers, based off the USENIX template. It includes some of the default styles one might use, and some hints on how to use them (not that I'm an expert).
 
-Please refer to the source in \texttt{paper.tex} (if you aren't already) for comments on what the different parts do. Don't hesitate to send updates if you know of better ways to do some of the things herein. \textit{Thanks!}
+Comments on how various things work are in the source. Don't hesitate to send a pull request if you know of better ways to do some of the things herein. \textit{Thanks!}
 \end{abstract}
 
-\section{\label{sec:intro}Introduction}
+% It's always a good idea to split the document up in files, maybe one per section; I don't do that here for your ease of learning, but you should.
+
 
 % use \label{sec:secname} for consistency and to make it easy to \ref{sec:secname} where you need to. The {hyperref} package makes nice links in PDFs.
+\section{\label{sec:intro}Introduction}
+This paper is organized as follows: Section~\ref{sec:intro} is what you're reading. Section~\ref{sec:code} shows some code. Section~\ref{sec:ft} shows figures and tables. Section~\ref{sec:tex} tells you about compiling LaTeX into PDFs. That's about it.
 
-This paper is organised as follows: Section~\ref{sec:intro} is what you're reading. Section~\ref{sec:figs} shows a figure. Section~\ref{sec:code} shows some code. That's about it.
-\\
-\\
-You can also have endnotes\endnote{But if you don't, you \textbf{MUST} comment out the \texttt{\\theendnotes} line at the end of the document.}. 
-\\
-\\
-And of course, you must cite lots to have a good paper. Often, peer reviewers will give a baseline review, then multiply it by the number of references you have. You generally want to find a way to cite \textit{Knuth}, \textit{Ritchie} or \textit{Diffie}~\cite{Diffie1976} for extra bonus.
-\\
-\\
-The tilde character (\~{}) in the source means a non-breaking space. This way, your reference will always be attached to the word that preceded it, instead of going to the next line. Useful for references as well.
 
-\section{\label{sec:figs}Figures}
-
-You need to look at the code for this. Notice the picture doesn't go exactly where you want it---but you can do your hardest to force it!
-
-\begin{figure}[h!]
-    \centering
-        % actual name of file minus extension inside {}
-        \includegraphics[width=0.475\textwidth]{fig}
-    % caption - what's the fig about? move above \include if you prefer
-    \caption{A figure}
-    % labels make it nice to refer back to figures
-    \label{fig:figure1}
-\end{figure}
-
-A trick I sometimes use is to define figs in a separate file (say, \texttt{figures.sty}) and include it in the \texttt{usepackage} directive at the top of the document. Helpful when you have lots of pictures and want to make moving them around easier.
-
-\section{\label{sec:code}Some Code}
-
-\subsection{\label{sec:code:py}Code Listings}
-
-Some embedded literal typeset code might look like the following :
-
+\section{\label{sec:code}Code}
+Some embedded literal typeset code might look like the following:
+\\ % forced linebreaks
 \texttt{
     \small\lstinputlisting[language=Python]{code.py}
 }
 
-The above uses the \texttt{\{listings\}} and \texttt{\{color\}} packages. Don't worry, it's all taken care for you in \texttt{style.sty}.
 
-\subsection{\label{sec:code:tex}LaTeX Magic}
+\section{\label{sec:ft}Figures and Tables}
+Getting pictures and tables exactly where you want them is a bit of trial-and-error, so it's particularly useful to have them in separate files so you can easily move them around. Go forth and experiment\ldots
 
-Did you look at the code in \texttt{paper.tex} yet? Hopefully, you're actually reading that.
+\input{fig-logo.tex}
+\input{table.tex}
 
-There are complicated ways of compiling LaTeX stuff, but I recommend using the awesome \texttt{Makefile}~\cite{latex-makefile} (included in the repo). It'll spit out a PDF on the other end and take care of everything and the kitchen sink for you.
 
-\subsubsection*{Suppressing Section Numbers}
+\section{\label{sec:tex}Getting the PDF}
+There are a number of ways to compile LaTeX, but I \textbf{strongly} recommend using the \texttt{Makefile}~\cite{latex-makefile} included in this package.
 
-% \ldots for ellipsis, don't use three dots - poor spacing.
-You do so using \texttt{(sub\ldots)section*}
+If you have multiple files included by a \textit{main} one, (which you really should) you specify the name of the top-level \texttt{.tex} file when you run \texttt{make}, and the rest will be taken care of for you. So in this repo, you'd run \texttt{make paper} to build the PDF.
 
 {\footnotesize 
     \bibliographystyle{acm}
-    \bibliography{bibliography}}
+    \bibliography{bibliography}
+    % \bibliography{otherbib} can have multiple bib files, of course
+}
 
 % comment out if you don't have endnotes anywhere
 \theendnotes
 
 \end{document}
-
-
-
-
-
-
-
