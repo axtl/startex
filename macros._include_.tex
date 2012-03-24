@@ -1,0 +1,18 @@
+
+\definecolor{greytext}{gray}{0.5}
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+
+% \FIXME{} is a useful macro for noting things needing to be changed.
+% The following definitions will also output a warning to the console
+\newcommand{\todo}[1]{\typeout{**TODO** #1}\textcolor{magenta}{[TODO]\footnote{\textcolor{magenta}{[Todo: #1]}}}}
+\newcommand{\fixme}[1]{\typeout{**FIXME** #1}\textcolor{red}{[FIXME: #1]}}
+\newcommand{\FIXME}[1]{\fixme{#1}}
+
+\newcommand{\rmk}[1]{\textcolor{OliveGreen}{[REM] #1}}
+\newcommand{\rmkfoot}[1]{\textcolor{OliveGreen}{[REM]\footnote{\textcolor{OliveGreen}{[REM: #1]}}}}
+
+
+\newcommand{\eg}{e.g.,\ }	% proper form of examples (\eg a, b, c)
+\newcommand{\ie}{i.e.,\ }	% proper form for that is (\ie a, b, c)

@@ -33,6 +33,8 @@ Organization\\
 % Comment it out when you first submit the paper for review.
 \thispagestyle{empty}
 
+\input{macros._include_}
+
 \begin{abstract}
 This is \textbf{startex}~\cite{startex}~\endnote{The tilde character (\~{}) in the source means a non-breaking space. This way, your reference will always be attached to the word that preceded it, instead of going to the next line. Useful for citations and endnotes as well.}, a LaTeX starter for conference-style papers, based off the USENIX template. It includes some of the default styles one might use, and some hints on how to use them (not that I'm an expert).
 
@@ -42,9 +44,9 @@ Comments on how various things work are in the source. Don't hesitate to send a 
 % It's always a good idea to split the document up in files, maybe one per section; I don't do that here for your ease of learning, but you should.
 
 
-% use \label{sec:secname} for consistency and to make it easy to \ref{sec:secname} where you need to. The {hyperref} package makes nice links in PDFs.
+% use \label{sec:secname} for consistency and to make it easy to \autoref{sec:secname} where you need to. The {hyperref} package makes nice links in PDFs.
 \section{\label{sec:intro}Introduction}
-This paper is organized as follows: Section~\ref{sec:intro} is what you're reading. Section~\ref{sec:code} shows some code. Section~\ref{sec:ft} shows figures and tables. Section~\ref{sec:tex} tells you about compiling LaTeX into PDFs. That's about it.
+This paper is organized as follows: \autoref{sec:intro} is what you're reading, \autoref{sec:code} shows some code, \autoref{sec:ft} shows figures and tables, while \autoref{sec:tex} tells you about compiling LaTeX into PDFs. That's about it.
 
 
 \section{\label{sec:code}Code}
@@ -56,7 +58,7 @@ Some embedded literal typeset code might look like the following:
 
 
 \section{\label{sec:ft}Figures and Tables}
-Getting pictures and tables exactly where you want them is a bit of trial-and-error, so it's particularly useful to have them in separate files so you can easily move them around. Go forth and experiment\ldots
+Getting pictures and tables exactly where you want them is a bit of trial-and-error, so it's particularly useful to have them in separate files so you can easily move them around. \autoref{fig:figure1} shows an example. Go forth and experiment\ldots
 
 \input{fig-logo.tex}
 \input{table.tex}
@@ -65,9 +67,9 @@ Getting pictures and tables exactly where you want them is a bit of trial-and-er
 \section{\label{sec:tex}Getting the PDF}
 There are a number of ways to compile LaTeX, but I \textbf{strongly} recommend using the \texttt{Makefile}~\cite{latex-makefile} included in this package.
 
-If you have multiple files included by a \textit{main} one, (which you really should) you specify the name of the top-level \texttt{.tex} file when you run \texttt{make}, and the rest will be taken care of for you. So in this repo, you'd run \texttt{make paper} to build the PDF.
+If you have multiple files included by a \textit{main} one, (which you really should) you specify the name of the top-level \texttt{.tex} file when you run \texttt{make}, and the rest will be taken care of for you; \eg in this repo, you'd run \texttt{make paper} to build the PDF.
 
-{\footnotesize 
+{\footnotesize
     \bibliographystyle{acm}
     \bibliography{bibliography}
     % \bibliography{otherbib} can have multiple bib files, of course
