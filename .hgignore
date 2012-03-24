@@ -1,0 +1,3 @@
+# ignore tex-related build files, can include manually
+(aux|bbl|blg|d|dvi|ent|fdb_latexmk|fls|log|make|out|pdf|run|synctex)
+
