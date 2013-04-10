@@ -1,0 +1,38 @@
+{
+    "folders":
+    [
+        {
+            "file_exclude_patterns":
+            [
+                "*.un~",
+                "*.log",
+                "*.make",
+                "*.ent",
+                "*.fls",
+                "*.aux",
+                "*.bbl",
+                "*.blg",
+                "*.brf",
+                "*.d",
+                "*.fdb_latexmk",
+                "*.gz",
+                "*.lof",
+                "*.lot",
+                "*.out",
+                "*.pdf",
+                "*.swp",
+                "*.temp",
+                "*.toc",
+                "*.sublime-workspace"
+            ],
+            "folder_exclude_patterns":
+            [
+                "bin",
+                "deps",
+                "lib",
+                "obj"
+            ],
+            "path": "."
+        }
+    ]
+}

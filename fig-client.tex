@@ -1,0 +1,84 @@
+%!TEX root = main.tex
+
+\begin{tikzpicture}[text height=1.25ex,text depth=.25ex,
+    data/.style={
+       rectangle,
+       inner sep=3mm,
+       minimum size=9mm,
+       very thick,
+       draw=blue!50!black!50,
+       top color=white,
+       bottom color=black!60!blue!40
+    },
+    func/.style={
+       rounded rectangle,
+       inner sep=3mm,
+       minimum size=9mm,
+       very thick,
+       draw=black!50,
+       top color=white,
+       bottom color=black!20,
+       font=\ttfamily
+    },
+    stor/.style={
+       rounded rectangle,
+       inner sep=3mm,
+       minimum size=9mm,
+       very thick,
+       draw=green!20!black!80,
+       top color=white,
+       bottom color=black!60!green!40
+    },
+    file/.style={
+        rectangle,
+        anchor=west,
+        inner sep=3mm,
+        minimum size=9mm,
+        thick,
+        draw=white,
+        font=\ttfamily
+    },
+    point/.style={coordinate},
+    >=stealth',thick,draw=black!50,
+    tip/.style={->,shorten >=1pt},
+    every join/.style={rounded corners}]
+
+    \matrix[column sep=3mm, row sep=6mm] {
+        % 5 by 5 matrix
+        % ROW 1
+        &
+        \node[data] (usrpwd) {password}; & &
+        \node[data] (salt)   {salt}; &
+        \node[func] (sprng)  {\acs{SPRNG}};\\
+        % ROW 2
+        & &
+        \node[func] (scrypt) {scrypt}; \\
+        % ROW 3
+        & & & &
+        \node[data] (basek)  {$B_k, (S_k$}; &
+        \node[data] (pkpk)  {$P_k)$}; \\
+        % ROW 4
+        & &
+        \node[data,align=center] (wrapk)  {$W_k$}; &
+        \coordinate (c1); & \coordinate (c2);\\
+        % ROW 5
+        & & &
+        \node[func] (aes)    {\acs{AES}}; & &\\
+        % ROW 6
+        &&&&
+        \node[stor] (store)  {storage};\\
+    };
+
+    \draw[->] (usrpwd) -- (scrypt.north west);
+    \draw[->] (salt) -- (scrypt.north east);
+    \draw[->,decorate,decoration={snake,pre length=45mm, post length=30mm}] (salt.south) -| (c1) -- (c2) -| (store.north);
+    \draw[->] (scrypt) -- (wrapk.north);
+    \draw[->] (wrapk) -- (aes.north west);
+    \draw[->] (sprng) -- (salt);
+    \draw[->] (sprng) -- (basek);
+    \draw[<->] (basek) -- (pkpk);
+    \draw[->] (basek) -- (aes.north east);
+    \draw[->] (pkpk) -- (store.north east);
+    \draw[->] (aes) --(store.north west);
+
+\end{tikzpicture}

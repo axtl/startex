@@ -34,6 +34,7 @@ Organization\\
 \thispagestyle{empty}
 
 \input{macros}
+\input{glossary}
 
 \begin{abstract}
 This is \textbf{startex}~\cite{startex}~\endnote{The tilde character (\~{}) in
@@ -50,7 +51,7 @@ a pull request if you know of better ways to do some of the things herein.
 \end{abstract}
 
 % It's always a good idea to split the document up in files, maybe one per
-section; I don't do that here for your ease of learning, but you should.
+% section; I don't do that here for your ease of learning, but you should.
 
 
 % use \label{sec:secname} for consistency and to make it easy to
@@ -74,11 +75,17 @@ Some embedded literal typeset code might look like the following:
 \section{\label{sec:ft}Figures and Tables}
 Getting pictures and tables exactly where you want them is a bit of trial-and-
 error, so it's particularly useful to have them in separate files so you can
-easily move them around. \autoref{fig:figure1} shows an example. Go forth and
+easily move them around. \autoref{fig:key-gen-user} is an example. Go forth and
 experiment\ldots
 
-\input{fig-logo.tex}
-\input{table.tex}
+\input{table}
+% \input{fig-logo}
+\begin{figure*}
+    \centering
+    \input{fig-client}
+    \caption{Key generation for a new user}
+    \label{fig:key-gen-user}
+\end{figure*}
 
 
 \section{\label{sec:tex}Getting the PDF}

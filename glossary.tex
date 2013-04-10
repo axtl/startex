@@ -1,0 +1,36 @@
+%!TEX root = main.tex
+
+% This glossary uses the handy \latexpackage{acroynym} package to automatically
+% maintain the glossary.  It uses the package's \texttt{printonlyused}
+% option to include only those acronyms explicitly referenced in the
+% \LaTeX\ source.
+
+% use \acrodef to define an acronym, but no listing
+\acrodef{AES}{Advanced Encryption Standard}
+\acrodef{SPRNG}{Secure Pseudo-Random Number Generator}
+
+% \begin{acronym}
+    % \acro{SPRNG}{Secure Pseudo-Random Number Generator}
+    % \acro{RSA}{Rivest, Shamir, \& Adleman\acroextra{ encryption}}
+    % \acro{RSAES-OAEP}{RSA Encryption Scheme\acroextra{ with \acl{OAEP}}}
+% \end{acronym}
+
+
+% The acronym environment will typeset only those acronyms that were
+% *actually used* in the course of the document
+
+% You can also use \newacro{}{} to only define acronyms
+% but without explictly creating a glossary
+%
+% \newacro{ANOVA}[ANOVA]{Analysis of Variance\acroextra{, a set of
+%   statistical techniques to identify sources of variability between groups.}}
+% \newacro{API}[API]{application programming interface}
+% \newacro{GOMS}[GOMS]{Goals, Operators, Methods, and Selection\acroextra{,
+%   a framework for usability analysis.}}
+% \newacro{TLX}[TLX]{Task Load Index\acroextra{, an instrument for gauging
+%   the subjective mental workload experienced by a human in performing
+%   a task.}}
+% \newacro{UI}[UI]{user interface}
+% \newacro{UML}[UML]{Unified Modelling Language}
+% \newacro{W3C}[W3C]{World Wide Web Consortium}
+% \newacro{XML}[XML]{Extensible Markup Language}

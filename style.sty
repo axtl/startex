@@ -1,4 +1,5 @@
 % style.sty - based off usenix.sty template v 1.2
+\usepackage[printonlyused]{acronym} % print used acronyms
 \usepackage[british]{babel}         % British hyphenation patterns
 \usepackage{booktabs}               % fancy tables
 \usepackage{caption}                % captions for tables
@@ -8,8 +9,12 @@
 \usepackage{helvet}                 % Helvetica
 \usepackage{listings}               % Code listings
 \usepackage{mathpazo}               % Palatino, including math
+\usepackage{tikz}
 %\usepackage{times}                  % if you really want Times, swap w. above
-\usepackage[colorlinks]{hyperref}   % links in PDF - keep this at end of list
+\usepackage[colorlinks]{hyperref}    % links in PDF - keep this at end of list
+
+% tikz libraries
+\usetikzlibrary{arrows,backgrounds,chains,decorations.markings,decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,positioning,shapes.misc}
 
 % the following are all related to code formatting
 
