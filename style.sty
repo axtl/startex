@@ -39,22 +39,24 @@ escapeinside={\%*}{*)},             % for comments in the code
 morekeywords={*,...}                % for more keywords to the set
 }
 
-\if@twocolumn\else\input twocolumn.sty\fi
 
-%
-% USENIX wants margins of: 1" sides, 1" bottom, and 1" top.
-% 0.25" gutter between columns.
-% Gives active areas of 6.5" x 9"
-%
-\setlength{\textheight}{9.0in}
-\setlength{\columnsep}{0.25in}
-\setlength{\textwidth}{6.50in}
+\if@twocolumn
+    %
+    % USENIX wants margins of: 1" sides, 1" bottom, and 1" top.
+    % 0.25" gutter between columns.
+    % Gives active areas of 6.5" x 9"
+    %
+    \setlength{\textheight}{9.0in}
+    \setlength{\columnsep}{0.25in}
+    \setlength{\textwidth}{6.50in}
 
-\setlength{\topmargin}{0.0in}
+    \setlength{\topmargin}{0.0in}
 
-\setlength{\headheight}{0.0in}
+    \setlength{\headheight}{0.0in}
 
-\setlength{\headsep}{0.0in}
+    \setlength{\headsep}{0.0in}
+\fi
+
 
 % Usenix wants no page numbers for camera-ready papers, so that they can
 % number them themselves.  But submitted papers should have page numbers
